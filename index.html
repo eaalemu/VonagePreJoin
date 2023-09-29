@@ -20,12 +20,8 @@
                   <div id="publisher"></div>
               </div>
             </div>
-            <div class="video-call-actions">
-                <button id="muteButton" class="video-action-button mic"></button>
-                <button id="cameraButton" class="video-action-button camera"></button>
-                <button id= "joinButton"class="video-action-button maximize">Join Call</button>
-            </div>
         </div>
+        <!-- Right Side -->
         <!-- Right Side -->
         <div class="right-side">
             <button class="btn-close-right">
@@ -37,23 +33,26 @@
                 </svg>
                 <!-- Close Icon -->
             </button>
+            <!-- Text -->
+            <div class="join-session-text">
+                <h1>Domumgym</h1>
+                <h3>Ready to join?</h3>
+            </div>
+            <div class="users-in-call-text">
+                <h4>User is in the call</h4>
+            </div>
+            <!-- Buttons -->
+            <div class="video-call-actions">
+                <button id="muteButton" class="video-action-button mic"></button>
+                <button id="cameraButton" class="video-action-button camera"></button>
+                <button style="background-color: maroon;" id="joinButton" class="chat-header-button">Join Call</button>
+            </div>
+            <!-- Chat Container (if needed) -->
             <div class="chat-container">
-                <div class="chat-header">
-                    <button class="chat-header-button">Live Chat</button>
-                </div>
-                <div class="chat-area">
-                    <!-- Chat messages go here -->
-                </div>
                 <div class="chat-typing-area-wrapper">
                     <div class="chat-typing-area">
                         <input type="text" placeholder="Type your message..." class="chat-input">
-                        <button class="send-button">
-                            <!-- Send icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send" viewBox="0 0 24 24">
-                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
-                            </svg>
-                            <!-- Send icon -->
-                        </button>
+                        <button class="send-button"></button>
                     </div>
                 </div>
             </div>
