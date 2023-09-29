@@ -383,18 +383,27 @@ body {
     display: block;
   }
   .right-side {
-    position: absolute;
-    right: 0;
-    background-color: var(--chat-background);
-    transform: translateX(100%);
-    z-index: 2;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+    margin-top: 100px; /* Adjust as needed to position it vertically */
+    padding: 16px;
+    position: relative;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+    flex: 1; /* Allow chat to take remaining space */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center text and buttons horizontally */
+    justify-content: center; /* Center content vertically */
   }
   .right-side.show {
     transform: translateX(0);
   }
   .btn-close-right {
     display: block;
+  }
+  /* Adjust the top margin for join-session-text to push it down a bit */
+  .join-session-text {
+    margin-top: 100px; /* Adjust as needed */
   }
 }
 
