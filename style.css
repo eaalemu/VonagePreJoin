@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: rgba(128,128,128,255);
 }
 button {
   outline: none;
@@ -25,7 +26,7 @@ a {
 /*==================== VARIABLES CS ====================*/
 
 body {
-  --app-background: #eaebf5;
+  --app-background: rgba(128,128,128,255)
   --chat-background: #fff;
   --link-color: #c0c1c5;
   --navigation-bg: #fff;
@@ -42,12 +43,11 @@ body {
 /*==================== LAYOUT ====================*/
 .app-container {
   background-color: var(--app-background);
-    width: 100%;
-    height: 100%;
-    font-family: 'DM Sans', sans-serif;
-    display: flex;
-    flex-direction: row; /* Align columns horizontally */
-    transition: 0.2s;
+  width: 100%;
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  transition: 0.2s;
 }
 /*==================== Navigation ====================*/
 
@@ -71,27 +71,15 @@ body {
   color: var(--link-color);
   transition: 0.2s ease-in;
 }
-
-.join-session-text {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 20px;
-}
-
-.join-session-text h1 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .right-side {
   margin-left: auto;
-    padding: 16px;
-    position: relative;
-    transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
-    flex: 1; /* Allow chat to take remaining space */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center text and buttons horizontally */
+  flex-basis: 400px;
+  height: 100%;
+  padding: 0px;
+  padding-bottom: 27px;
+  position: relative;
+  transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+  background-color: rgba(128,128,128,255);
 }
 .right-side.show {
   display: block;
@@ -99,27 +87,34 @@ body {
 }
 /*==================== Chat ====================*/
 .chat-container {
-  background-color: var(--chat-background);
+  background-color: rgba(128,128,128,255); /* Change chat container background color */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden; /* Add this line to hide overflowing content */
 }
+
 
 .chat-area {
   flex: 1;
-  padding: 16px;
+  padding: 5px;
+  padding-bottom: 0px;
   overflow-y: auto;
   margin-bottom: 0px;
+  margin-top: 0px;
+  
+  background-color: rgba(79,74,68,255);
 }
 
 .chat-header {
-  padding: 16px;
+  padding: 8px;
   border-bottom: 1px solid #f5f5f5;
+  background-color: #3d3834; 
 }
 .chat-header-button {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Cpath d='M479.9 187.52l-90.19 68.53v-52.6a20 20 0 00-20-20H20a20 20 0 00-20 20V492a20 20 0 0020 20h349.71a20 20 0 0020-20v-52.6l90.18 68.52c13.05 9.91 32.1.67 32.1-15.92V203.45c0-16.5-18.94-25.92-32.1-15.93zM349.7 472H40V223.45h309.71zM472 451.68l-82.29-62.53V306.3L472 243.77zM87.96 79.24C129.62 28.88 190.86 0 256 0c65.13 0 126.37 28.88 168.03 79.24a20 20 0 01-30.82 25.5A177.6 177.6 0 00256 40a177.6 177.6 0 00-137.21 64.73 20 20 0 11-30.83-25.5zm240.36 32.21a20 20 0 11-21.02 34.03 97.57 97.57 0 00-51.3-14.53 97.6 97.6 0 00-51.31 14.53 20 20 0 11-21.02-34.03A137.53 137.53 0 01256 90.95c25.59 0 50.6 7.09 72.32 20.5zm0 0'/%3E%3C/svg%3E%0A");
-  background-color: var(--main-color);
+  background-color: #3d3834;
   padding: 12px 16px 12px 40px;
   border: none;
   border-radius: 4px;
@@ -222,17 +217,28 @@ body {
 .mention {
   color: #7c80fd;
 }
-.chat-typing-area-wrapper  {
-  display: none;
+.chat-typing-area-wrapper {
+  /* Remove padding-top and padding-bottom */
+  display: block;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 350px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  background-color: #3d3834; 
 }
+
 .chat-typing-area {
+  /* Change to position: absolute; */
+  position: relative;
+  bottom: 0;
   display: flex;
   border-radius: 10px;
   padding: 8px;
   box-shadow: var(--navigation-box-shadow);
   background-color: var(--message-bg);
-  margin-top: 0px;
-  position: sticky;
+  /* margin-top: 0px; Remove this line */
+  /* margin-bottom: 0px; Remove this line */
 }
 .chat-input {
   border: none;
@@ -248,8 +254,10 @@ body {
 }
 .send-button {
   color: #fff;
-  background-color: var(--main-color);
+  background-color: rgba(141,26,57,255);
+  display: inline-block;
   border-radius: 8px;
+  margin-right: 0px;
   border: none;
   width: 32px;
   height: 32px;
@@ -265,7 +273,7 @@ body {
 .app-main {
   flex: 1;
   width: 100%;
-  padding: 72px 32px 16px 32px;
+  padding: 10px 32px 10px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -293,29 +301,27 @@ body {
 .btn-mute {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
   margin-right: 4px;
+  background-color: #feb8c8;
 }
 .btn-camera {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
 }
-/* Add this CSS to your existing styles */
 .video-call-actions {
   display: flex;
-  flex-direction: row; /* Display buttons horizontally */
-  justify-content: flex-end; /* Align buttons to the right */
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 150px;
+  max-width: 500px;
+  color:#746869;
 }
-
-.video-call-actions button {
-  display: inline-block;
-  margin-right: 10px; /* Adjust the margin as needed for spacing */
-}
-
 .video-action-button {
   background-repeat: no-repeat;
+  background-color: #feb8c8;
   background-size: 24px;
   border: none;
   height: 48px;
-  margin-left: 0; /* Remove the left margin */
-  margin-bottom: 8px; /* Adjust margin as needed */
+  margin: 0 8px;
   box-shadow: var(--navigation-box-shadow);
   border-radius: 8px;
   width: 48px;
@@ -324,23 +330,28 @@ body {
   background-color: var(--button-bg);
 }
 .video-action-button.mic {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 a7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
   background-position: center;
+  background-color: #feb8c8;
+  
 }
 .video-action-button.camera {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
   background-position: center;
+  background-color: #feb8c8;
 }
 
 .video-action-button.endcall {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff1932' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone-missed'%3E%3Cline x1='23' y1='1' x2='17' y2='7'/%3E%3Cline x1='17' y1='1' x2='23' y2='7'/%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
   color: #ff1932;
+  background-color: white;
   width: auto;
   font-size: 14px;
   padding-left: 42px;
   padding-right: 12px;
   background-size: 20px;
   background-position: center left 12px;
+  background-color: #feb8c8;
 }
 
 
@@ -383,27 +394,18 @@ body {
     display: block;
   }
   .right-side {
-    margin-left: auto;
-    margin-right: auto; /* Center horizontally */
-    margin-top: 100px; /* Adjust as needed to position it vertically */
-    padding: 16px;
-    position: relative;
-    transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
-    flex: 1; /* Allow chat to take remaining space */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center text and buttons horizontally */
-    justify-content: center; /* Center content vertically */
+    position: absolute;
+    right: 0;
+    background-color: var(--chat-background);
+    transform: translateX(100%);
+    z-index: 2;
+    width: 100%;
   }
   .right-side.show {
     transform: translateX(0);
   }
   .btn-close-right {
     display: block;
-  }
-  /* Adjust the top margin for join-session-text to push it down a bit */
-  .join-session-text {
-    margin-top: 100px; /* Adjust as needed */
   }
 }
 
@@ -413,7 +415,7 @@ body {
     display: none;
   }
   .app-main {
-    padding: 72px 16px 16px 16px;
+    padding: 50px 16px 16px 16px;
   }
   .expand-btn {
     right: 16px;
@@ -421,19 +423,20 @@ body {
   .mode-switch {
     left: 16px;
   }
-  .video-call-actions {
-    padding-top: 32px;
-  }
+  
+  
   .video-action-button {
     width: 32px;
     height: 32px;
     background-size: 14px;
     margin: 0 4px;
+    background-color: #feb8c8;
   }
   .video-action-button.endcall {
     background-size: 14px;
     font-size: 12px;
     padding-left: 36px;
+    background-color: #feb8c8;
   }
 }
 /*==================== Devices Between 520px - 720px ====================*/
@@ -453,7 +456,7 @@ body, html {
 #videos {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -465,6 +468,8 @@ body, html {
   width: 100%;
   height: 100%;
   z-index: 10;
+  padding-top: 0px;
+  
 }
 
 #publisher {
@@ -476,4 +481,196 @@ body, html {
   z-index: 100;
   border: 3px solid white;
   border-radius: 3px;
+}
+/* Your existing CSS styles here */
+/* Add this CSS to adjust the meeting bar, video call actions, and chat container */
+.meeting-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  background-color: rgba(141, 26, 57, 255);
+  margin: 0;
+  color: white;
+  font-size: 24px;
+}
+
+.meeting-icon {
+  margin-right: 8px;
+  fill: white; /* Icon color */
+}
+
+.meeting-text {
+  color: white;
+
+}
+.meeting-time{
+  margin-left: 20px;
+}
+
+.app-container {
+  position: relative;
+  top: 50px; /* Adjust the value as needed to move the content up */
+}
+
+
+
+/* Style for the participants container */
+.participants-container {
+  background-color: rgba(128, 128, 128, 255); /* Match the chat background color */
+  border-radius: 10px;
+  margin-top: 0px; /* Adjust the margin as needed */
+  padding: 0px;
+  display: block;
+  border-bottom: 20px;
+}
+
+/* Style for the participants header */
+.participants-header {
+  text-align: left;
+  margin-bottom: 2px;
+  margin-left: 0px;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding-top: 5px;
+  background-color: #3d3834;
+
+  /* Adjust the margin as needed */
+}
+
+.participants-header-button {
+  background-color: #3d3834; /* Change the background color of the button */
+  color: white; /* Change the text color */
+
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
+  margin-left: 10px;
+  margin-bottom: 6px;
+}
+
+.participants-list {
+  background-color: rgba(98,93,87,255);
+  padding-bottom: 150px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+
+}
+
+.participants-header-button:hover {
+  background-color: darkred; /* Change the background color on hover */
+}
+
+
+
+.top-left-icon {
+  position: absolute;
+  top: 20px; /* Adjust the top position as needed */
+  left: 60px; /* Adjust the left position as needed */
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  z-index: 100; /* Ensure it appears above other elements */
+  border-radius: 50px;
+
+}
+.vertical-line {
+  position: absolute;
+  top: 0px; /* Adjust the top position to align with the icon */
+  left: 180px; /* Adjust the left position to place the line between the icon and text */
+  width: 0.5px; /* Adjust the width as needed for the line thickness */
+  height: 90px; /* Extend the line to the bottom of the page */
+  background-color: white; /* Set the line color to white */
+  z-index: 99; /* Ensure it appears below the icon */
+}
+
+.vertical-line2{
+  position: absolute;
+  top: 0px; /* Adjust the top position to align with the icon */
+  left: 1080px; /* Adjust the left position to place the line between the icon and text */
+  width: 0.5px; /* Adjust the width as needed for the line thickness */
+  height: 90px; /* Extend the line to the bottom of the page */
+  background-color: white; /* Set the line color to white */
+  z-index: 99; /* Ensure it appears below the icon */
+}
+
+.person-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1100px; /* Adjust the left padding as needed for spacing */
+  color: white; /* Set the text color for the person's name and title */
+  z-index: 99; /* Ensure it appears below the icon and text */
+}
+
+
+.person-name {
+  font-size: 20px;
+  display: block; /* Adjust the font size as needed */
+}
+
+.person-title {
+  font-size: 12px; /* Adjust the font size as needed */
+ 
+}
+.profile-image {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  border-radius: 50%; /* Creates a round shape for the image */
+  overflow: hidden;
+  background-color: rgba(141,26,57,255); /* Set a background color if the image is not available */
+}
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column; /* Display dots vertically */
+  /* Align the dots to the right */
+  padding-left: 1170px;
+  padding-top:5px;
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 0px;
+  right: 0px; 
+  left: 100px;/* Adjust the right position as needed for spacing */
+  top: 0;
+
+}
+
+.dot {
+  width: 3px; /* Adjust the width of the dots */
+  height: 3px; /* Adjust the height of the dots */
+  background-color: white; /* Set the color of the dots */
+  border-radius: 50%; /* Makes the dots round */
+  margin: 2px;/* Adjust the vertical margin between the dots */
+}
+
+.first-participant {
+  font-size: 14px; /* Adjust the font size as needed */
+  padding: 8px;
+  border-top: 0px;
+  margin-left: 5px;
+  margin-top:6px;
+  padding-right: 300px; /* Adjust the padding for the participant item */
+  color: black; /* Set the text color for the participant name */
+  transition: 0.2s;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center; /* Center the text horizontally */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a bottom border to separate participants */
+  background-color: #fea0b2;
+
+}
+
+.first-participant:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
 }

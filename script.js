@@ -34,8 +34,8 @@ chatInput.addEventListener('keyup', (event) => {
 
 // replace these values with those generated in your Video API account
 var apiKey = "47780571";
-var sessionId = "1_MX40Nzc4MDU3MX5-MTY5NjAxNTM1Njc1N356WUR5amMxOFZTQnhrVVNuTVVzM3UwR2t-fn4";
-var token = "T1==cGFydG5lcl9pZD00Nzc4MDU3MSZzaWc9ZWU0YWY1ZTA3MWI1MzE4YmFhODU4OGVlMGY4NTI0ZmZiOWYwYjVlZTpzZXNzaW9uX2lkPTFfTVg0ME56YzRNRFUzTVg1LU1UWTVOakF4TlRNMU5qYzFOMzU2V1VSNWFtTXhPRlpUUW5oclZWTnVUVlZ6TTNVd1IydC1mbjQmY3JlYXRlX3RpbWU9MTY5NjAxNTUxNyZub25jZT0wLjM0MzQyOTkyNjI3MTMyNjA3JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2OTY2MjAzMTYmaW5pdGlhbF9sYXlvdXRfY2xhc3NfbGlzdD0=";
+var sessionId = "1_MX40Nzc4MDU3MX5-MTY5NTQxMjI0NjI5OH56M3RhcWNGTWJRZTJoaU1heHBBakRUR3J-fn4";
+var token = "T1==cGFydG5lcl9pZD00Nzc4MDU3MSZzaWc9ZTU4NWQzZmRmODBjYjNjNTU4OTYxZjM1NzgwMWZiOGRhNWQ4NzczNzpzZXNzaW9uX2lkPTFfTVg0ME56YzRNRFUzTVg1LU1UWTVOVFF4TWpJME5qSTVPSDU2TTNSaGNXTkdUV0pSWlRKb2FVMWhlSEJCYWtSVVIzSi1mbjQmY3JlYXRlX3RpbWU9MTY5NTQxMjMyOSZub25jZT0wLjY3NjQ3ODk0MDQ0MzEwODImcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTY5NTQ5ODcyOCZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==";
 
 // Handling all of our errors here by alerting them
 function handleError(error) {
@@ -75,41 +75,5 @@ function initializeSession() {
       session.publish(publisher, handleError);
     }
   });
-}
-
-const muteButton = document.getElementById("muteButton");
-const cameraButton = document.getElementById("cameraButton");
-
-muteButton.addEventListener("click", () => {
-    toggleAudio();
-});
-
-cameraButton.addEventListener("click", () => {
-    toggleVideo();
-});
-
-// ...
-
-function toggleAudio() {
-  var session = OT.initSession(apiKey, sessionId);
-    if (session) {
-        const publisher = session.publisher.find(p => p.stream.hasAudio);
-        if (publisher) {
-            const audioEnabled = !publisher.stream.audioEnabled;
-            publisher.publishAudio(audioEnabled);
-            muteButton.textContent = audioEnabled ? "Mute Microphone" : "Unmute Microphone";
-        }
-    }
-}
-
-function toggleVideo() {
-  var session = OT.initSession(apiKey, sessionId);
-    if (session) {
-        const publisher = session.publisher.find(p => p.stream.hasVideo);
-        if (publisher) {
-            const videoEnabled = !publisher.stream.videoEnabled;
-            publisher.publishVideo(videoEnabled);
-            cameraButton.textContent = videoEnabled ? "Turn Off Camera" : "Turn On Camera";
-        }
-    }
+  
 }
